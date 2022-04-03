@@ -10,3 +10,15 @@ const model = require('../models');
     res.json({'message': respone});
     // res.json({'message':'response'});
 };
+
+
+/**
+ * Get a single show
+ * 
+ */
+ exports.getShow = async function(req, res) {
+    console.log(req.params.id);
+    const response = await model.Shows.findOne({ where: { id: req.params.id} });
+    res.json(response);
+    // res.json({'message':'response'});
+};

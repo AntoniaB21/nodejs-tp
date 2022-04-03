@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Show extends Model {
     /**
@@ -39,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     rating:DataTypes.JSON,
   }, {
     sequelize,
-    modelName: 'Show',
+    modelName: 'Shows',
   });
   return Show;
 };

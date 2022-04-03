@@ -9,24 +9,34 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       url: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      type: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      language: {
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       summary: {
         type: Sequelize.TEXT
       },
       premiered: {
+        allowNull: false,
         type: Sequelize.DATE
       },
       ended: {
+        allowNull: false,
         type: Sequelize.DATE
       },
-      language: {
-        type: Sequelize.STRING
-      },
       genres: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       status: {
@@ -34,7 +44,14 @@ module.exports = {
         defaultValue:'inactive'
       },
       officialSite: {
-        type: Sequelize.STRING
+        type:  Sequelize.STRING,
+        defaultValue:''
+      },
+      image:{
+        type: Sequelize.JSON
+      },
+      rating: {
+        type: Sequelize.JSON,
       },
       createdAt: {
         allowNull: false,

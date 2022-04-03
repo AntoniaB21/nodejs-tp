@@ -1,9 +1,9 @@
 const express = require('express');
-const homeRouter = require('./routes/home');
+const showsRouter = require('./routes/shows');
 const app = express();
 const port = 3000;
 
-app.use('/home',homeRouter);
+app.use('/shows',showsRouter);
 
 app.get('/', (req, res) => {
     res.json({'message':'API is running fine!'})

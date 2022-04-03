@@ -19,8 +19,15 @@ module.exports = (sequelize, DataTypes) => {
     url: DataTypes.STRING,
     type: DataTypes.STRING,
     summary: DataTypes.TEXT,
-    premiered: DataTypes.DATE,
-    ended: DataTypes.DATE,
+    premiered: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
+
+    },
+    ended: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
+    },
     genres: {
       type: DataTypes.STRING,
       defaultValue:'',
@@ -33,6 +40,14 @@ module.exports = (sequelize, DataTypes) => {
     officialSite: DataTypes.STRING,
     image:DataTypes.JSON,
     rating:DataTypes.JSON,
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
+    }
   }, {
     sequelize,
     modelName: 'Shows',

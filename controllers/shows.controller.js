@@ -16,9 +16,18 @@ const model = require('../models');
  * Get a single show
  * 
  */
- exports.getShow = async function(req, res) {
-    console.log(req.params.id);
+ exports.getShow = async function(req , res) {
     const response = await model.Shows.findOne({ where: { id: req.params.id} });
     res.json(response);
     // res.json({'message':'response'});
+};
+
+/**
+ * Add a new show
+ * 
+ */
+ exports.addShow = async function(req, res) {
+    console.log(req.body);
+    const response = await model.Shows.create(req.body);
+    res.json({'message': response});
 };

@@ -15,25 +15,31 @@ module.exports = {
       url: {
         type: Sequelize.STRING,
         allowNull: false,
+        defaultValue:''
       },
       type: {
         type: Sequelize.STRING,
         allowNull: false,
+        defaultValue:''
       },
       language: {
         type: Sequelize.STRING,
         allowNull: false,
+        defaultValue:''
       },
       summary: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        defaultValue:''
       },
       premiered: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue:  Sequelize.NOW
       },
       ended: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue:  Sequelize.NOW
       },
       genres: {
         allowNull: false,
@@ -55,11 +61,13 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
       }
     });
   },

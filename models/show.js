@@ -23,12 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     ended: DataTypes.DATE,
     genres: {
       type: DataTypes.STRING,
-      get() {
-        return this.getDataValue('genres').split(';')
-      },
-      set(val) {
-        this.setDataValue('genres',val.join(';'));
-      },
+      defaultValue:'',
     },
     language: DataTypes.STRING,
     status: {

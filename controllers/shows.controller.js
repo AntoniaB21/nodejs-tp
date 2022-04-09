@@ -1,4 +1,5 @@
 const { sequelize , DataTypes } = require('sequelize');
+const { validationResult } = require('express-validator');
 
 const model = require('../models');
 /**
@@ -28,7 +29,10 @@ const model = require('../models');
  * 
  */
  exports.addShow = async function(req, res) {
-    console.log(req.body);
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
     const response = await model.Shows.create(req.body);
     return res.status(201).json(response);
 };
@@ -39,11 +43,18 @@ const model = require('../models');
  */
  exports.updateShow = async function(req, res) {
     const response = await model.Shows.findOne({ where: { id: req.params.id} });
+
     if (!response) {
         return res.status(404).json({'message':`Show ${req.params.id} not found`});
     }
+
+    console.log(response.id);
+    console.log(req.params.id)
+
     const updatedObject = await model.Shows.update(req.body,{ where: { id: req.params.id} });
-    const result = await model.Shows.findOne({ where: { id: updatedObject}});
+
+    const result = await model.Shows.findOne({ where: { id: req.params.id}});
+
     return res.status(200).json(result);
 };
 

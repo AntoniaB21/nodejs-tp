@@ -12,17 +12,34 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Show.hasMany(models.Episode)
     }
   }
   Show.init({
+    id:{
+      type:DataTypes.INTEGER,
+      primaryKey:true,
+      allowNull:false,
+      unique:true,
+    },
     name: DataTypes.STRING,
-    url: DataTypes.STRING,
-    type: DataTypes.STRING,
-    summary: DataTypes.TEXT,
+    url: {
+      type: DataTypes.STRING,
+      isUrl: true,
+      allowNull:false
+    },
+    type: {
+      type: DataTypes.ENUM('scripted','not scripted'),
+      defaultValue:'scripted',
+      allowNull:false
+    },
+    summary: {
+      type: DataTypes.TEXT,
+      allowNull:false
+    },
     premiered: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW
-
     },
     ended: {
       type: DataTypes.DATE,

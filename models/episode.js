@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Episode extends Model {
     /**
@@ -10,10 +11,16 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      // associations
+      Episode.belongsTo(models.Shows)
     }
   }
   Episode.init({
+    id: {
+      type:DataTypes.INTEGER,
+      allowNull:false,
+      unique:true,
+    },
     name: DataTypes.STRING,
     url: DataTypes.STRING,
     season: DataTypes.NUMBER,
@@ -27,7 +34,17 @@ module.exports = (sequelize, DataTypes) => {
     runtime: DataTypes.NUMBER,
     rating: DataTypes.JSON,
     image: DataTypes.JSON,
-    summary: DataTypes.TEXT
+    summary: DataTypes.TEXT,
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE,
+    showId: {
+      type: DataTypes.UUID,
+      foreignKey: true,
+      references: {
+        model:'Shows',
+        key: 'id'
+      },
+    }
   }, {
     sequelize,
     modelName: 'Episode',

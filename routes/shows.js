@@ -1,6 +1,7 @@
 const express = require('express');
-const showsRouter = express.Router();
+const showsRouter = express.Router({mergeParams:true});
 const showsController = require('../controllers/shows.controller');
+const episodesController = require('../controllers/episodes.controller');
 const { body } = require('express-validator');
 
 const showConstraints = [
@@ -17,6 +18,9 @@ showsRouter.post('/', showConstraints[0], showsController.addShow);
 showsRouter.get('/:id', showsController.getShow);
 showsRouter.put('/:id', showConstraints[0], showsController.updateShow);
 showsRouter.delete('/:id', showsController.deleteShow);
-// showsRouter.get('/:id/episodes', showsController.getShowEpisodes);
+
+// Shows and Episodes routes
+showsRouter.get('/:id/episodes', episodesController.getEpisodes);
+showsRouter.get('/:showId/episodes/:episodeId', episodesController.getEpisode);
 
 module.exports = showsRouter;

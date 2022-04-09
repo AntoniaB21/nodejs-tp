@@ -20,6 +20,8 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.INTEGER,
       allowNull:false,
       unique:true,
+      autoIncrement:true,
+      primaryKey:true,
     },
     name: DataTypes.STRING,
     url: DataTypes.STRING,

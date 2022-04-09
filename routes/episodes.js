@@ -15,8 +15,9 @@ const episodeConstraints = [
     body('rating').isInt().withMessage('rating should be a valid json'),
 ]
 
-episodeRouter.post('/', episodeConstraints[0],episodesController.addEpisode);
-episodeRouter.put(':id', episodeConstraints[0], episodesController.updateEpisode);
-episodeRouter.delete(':id', episodesController.deleteEpisode);
+episodeRouter.post('/', episodeConstraints[0], episodesController.addEpisode);
+episodeRouter.put('/:id', episodeConstraints[0], episodesController.updateEpisode);
+episodeRouter.delete('/:id', episodesController.deleteEpisode);
+episodeRouter.get('/:id', episodesController.getEpisode);
 
 module.exports = episodeRouter;

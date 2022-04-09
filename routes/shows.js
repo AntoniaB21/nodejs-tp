@@ -20,7 +20,6 @@ showsRouter.put('/:id', showConstraints[0], showsController.updateShow);
 showsRouter.delete('/:id', showsController.deleteShow);
 
 // Shows and Episodes routes
-showsRouter.get('/:id/episodes', episodesController.getEpisodes);
-showsRouter.get('/:showId/episodes/:episodeId', episodesController.getEpisode);
+showsRouter.get('/:showId/episodes', episodesController.getEpisodes);
 
 module.exports = showsRouter;

@@ -24,7 +24,13 @@ const model = require('../models');
     console.log(hash);
     req.body.passwprd = hash;
     const response = await model.User.create({
-        ...hash,
+        "fistName": req.body.firstName,
+        "lastName": req.body.lastName,
+        "email": req.body.email,
+        "password": hash,
+        "roles": 'USER',
+        'createdAt': new Date(),
+        'updatedAt': new Date(),
     });
     return res.status(201).json(response);
 };
@@ -72,7 +78,7 @@ const model = require('../models');
     if (!response) {
         return res.status(404).json({'message':`User ${req.params.id} not found`});
     }
-    
+
     await model.User.destroy({ where: { id: req.params.id} });
 
     return res.json({'message': `Successfully deleted user ${req.params.id}`});

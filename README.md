@@ -11,7 +11,7 @@ NodeJS TP M2 Dev ECV Digital
 ## Installation du projet
 
 Ce projet utilise [node](http://nodejs.org) et [npm](https://npmjs.com). Pour installer le projet on utilise la commande suivante:
-her
+
 ```sh
 $ npm install
 ```
@@ -42,6 +42,7 @@ $ npm run dev
 Les dépendances utilisées pour ce projet, présentes dans `package.json` sont les suivantes :
 
 ### Depedencies
+- [axios](https://www.npmjs.com/package/axios)
 - [bcrypt](https://www.npmjs.com/package/bcrypt)
 - [body-parser](https://www.npmjs.com/package/body-parser)
 - [dotenv](https://www.npmjs.com/package/dotenv)
@@ -59,3 +60,6 @@ Les dépendances utilisées pour ce projet, présentes dans `package.json` sont 
 ### Dev Dependecies
 - [nodemon](https://www.npmjs.com/package/nodemon)
 - [sequelize-cli](https://www.npmjs.com/package/sequelize-cli)
+
+# Middlewares
+Mise en place de middlewares pour contrôler la présence du token pour certaines requêtes.

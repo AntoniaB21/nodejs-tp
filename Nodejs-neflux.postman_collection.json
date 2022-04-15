@@ -1,0 +1,478 @@
+{
+	"info": {
+		"_postman_id": "0deee23e-3d97-433c-94f5-3bcba5e5dc73",
+		"name": "Nodejs-neflux",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Shows",
+			"item": [
+				{
+					"name": "Get Shows",
+					"protocolProfileBehavior": {
+						"followRedirects": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/shows",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"shows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single Show",
+					"protocolProfileBehavior": {
+						"followRedirects": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/shows/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"shows",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a single show",
+					"protocolProfileBehavior": {
+						"followRedirects": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"new show updated\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/shows/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"shows",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new show",
+					"protocolProfileBehavior": {
+						"followRedirects": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Revenge\",\n    \"url\":\"url.com\",\n    \"type\":\"scripted\",\n    \"language\":\"EN\",\n    \"summary\":\"lorem ipsum\",\n    \"status\":\"inactive\",\n    \"officialSite\":\"www.got.fr\",\n    \"image\": {\n        \"medium\":\"medium-image.fr\",\n        \"large\":\"large-image.fr\"\n    },\n    \"premiered\":\"2022-04-03\",\n    \"ended\":\"2022-04-23\",\n    \"genres\":\"{}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/shows",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"shows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a single show",
+					"protocolProfileBehavior": {
+						"followRedirects": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/shows/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"shows",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Episodes",
+			"item": [
+				{
+					"name": "Get episodes by show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/shows/:showId/episodes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"shows",
+								":showId",
+								"episodes"
+							],
+							"variable": [
+								{
+									"key": "showId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new episode",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"new episode\",\n    \"url\":\"episode1.fr.image\",\n    \"season\":1,\n    \"number\":1,\n    \"type\":\"scripted\",\n    \"airdate\":\"2022-10-10\",\n    \"airtime\":220,\n    \"image\": {\n        \"medium\":\"medium-image.fr\",\n        \"large\":\"large-image.fr\"\n    },\n    \"summary\": \"lorem ipsum\",\n    \"rating\":{\n        \"average\":2.3\n    },\n    \"showId\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/episodes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"episodes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a single episode",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"name episode updated\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/episodes/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"episodes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single episode",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\":\"message\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/episodes/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"episodes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a single episode",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\":\"message\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/shows/:showId/episodes/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"shows",
+								":showId",
+								"episodes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "showId",
+									"value": null
+								},
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Add a new user",
+					"protocolProfileBehavior": {
+						"followRedirects": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"lastName\":\"toto\",\n    \"firstName\":\"toto\",\n    \"email\":\"toto@gmail.com\",\n    \"password\":\"azerty\",\n    \"roles\":\"ADMIN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single user",
+					"protocolProfileBehavior": {
+						"followRedirects": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a single user",
+					"protocolProfileBehavior": {
+						"followRedirects": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"toto updated\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a single user",
+					"protocolProfileBehavior": {
+						"followRedirects": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get users",
+					"protocolProfileBehavior": {
+						"followRedirects": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/home",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/home",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"home"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

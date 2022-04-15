@@ -6,6 +6,14 @@ NodeJS TP M2 Dev ECV Digital
 - RAMBUR Jeanne jeanne.rambur@mail-ecv.fr
 - TRAORE Maryam maryam.traore@mail-ecv.fr
 
-# Installation du projet
+# Installation et lancement du projet
 
-# Lancer le projet
+## Installation du projet
+
+Ce projet utilise [node](http://nodejs.org) et [npm](https://npmjs.com). Pour installer le projet on utilise la commande suivante:
+
+```sh
+$ npm install
+```
+
+## Lancer le projet

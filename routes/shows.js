@@ -3,6 +3,9 @@ const showsRouter = express.Router({mergeParams:true});
 const showsController = require('../controllers/shows.controller');
 const episodesController = require('../controllers/episodes.controller');
 const { body } = require('express-validator');
+const authMiddleware = require('../middlewares/token');
+
+showsRouter.use(authMiddleware);
 
 const showConstraints = [
             body('name').isString().withMessage('name should be a string'),

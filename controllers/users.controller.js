@@ -20,19 +20,20 @@ const model = require('../models');
  *   
  */
  exports.addUser = async function(req, res) {
-    const hash = bcrypt.hashSync(req.body.password, 5); 
-    console.log(hash);
-    req.body.passwprd = hash;
+    // const hash = bcrypt.hashSync(req.body.password, 5);
+    // console.log(hash);
+    // req.body.passwprd = hash;
     const response = await model.User.create({
         "fistName": req.body.firstName,
         "lastName": req.body.lastName,
         "email": req.body.email,
-        "password": hash,
+        "password": req.body.password,
         "roles": 'USER',
         'createdAt': new Date(),
         'updatedAt': new Date(),
     });
-    return res.status(201).json(response);
+    
+    return res.status(201).json({"message":`new User ${req.body.firstName} has been created`});
 };
 
 /**
@@ -50,7 +51,7 @@ const model = require('../models');
 };
 
 /**
- * Get a single user
+ * Update a single user
  *   
  */
  exports.updateUser = async function(req, res) {

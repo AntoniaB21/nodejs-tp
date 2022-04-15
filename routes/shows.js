@@ -4,6 +4,7 @@ const showsController = require('../controllers/shows.controller');
 const episodesController = require('../controllers/episodes.controller');
 const { body } = require('express-validator');
 const authMiddleware = require('../middlewares/token');
+const checkRightsAdmin = require('../middlewares/checkRights');
 
 showsRouter.use(authMiddleware);
 
@@ -17,10 +18,10 @@ const showConstraints = [
 ]
 
 showsRouter.get('/', showsController.getShows);
-showsRouter.post('/', showConstraints[0], showsController.addShow);
+showsRouter.post('/', checkRightsAdmin, showConstraints[0], showsController.addShow);
 showsRouter.get('/:id', showsController.getShow);
-showsRouter.put('/:id', showConstraints[0], showsController.updateShow);
-showsRouter.delete('/:id', showsController.deleteShow);
+showsRouter.put('/:id', checkRightsAdmin, showConstraints[0], showsController.updateShow);
+showsRouter.delete('/:id', checkRightsAdmin, showsController.deleteShow);
 
 // Shows and Episodes routes
 showsRouter.get('/:showId/episodes', episodesController.getEpisodes);

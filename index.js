@@ -10,6 +10,8 @@ require('dotenv').config()
 
 const model = require('./models');
 
+const axios = require("axios").create({baseUrl: "https://api.tvmaze.com/"});
+
 app.use(bodyParser.json())
 app.use('/shows',showsRouter);
 
@@ -20,6 +22,32 @@ app.get('/', (req, res) => {
     res.json({'message':'API is running fine!'})
 })
 
+app.get("/axios-shows", (req, res) => {
+	axios({
+		url: "show",
+		method: "get",
+	})
+		.then(response => {
+			res.status(200).json(response.data);
+		})
+		.catch((err) => {
+			res.status(500).json({ message: err });
+		});
+});
+
+app.get("/axios-people", (req, res) => {
+	axios({
+		url: "people",
+		method: "get",
+	})
+		.then(response => {
+			res.status(200).json(response.data);
+		})
+		.catch((err) => {
+			res.status(500).json({ message: err });
+		});
+  });
+      
 app.post('/authentication-token', async (req, res) => {
   // route login
   if (!req.body.email || !req.body.password) {

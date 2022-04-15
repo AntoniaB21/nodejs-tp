@@ -1,4 +1,4 @@
-# nodejs-tp
+# Projet Node JS - M2 DEV
 NodeJS TP M2 Dev ECV Digital
 
 # Membres de l'équipe

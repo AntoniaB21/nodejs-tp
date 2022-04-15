@@ -11,7 +11,7 @@ NodeJS TP M2 Dev ECV Digital
 ## Installation du projet
 
 Ce projet utilise [node](http://nodejs.org) et [npm](https://npmjs.com). Pour installer le projet on utilise la commande suivante:
-her
+
 ```sh
 $ npm install
 ```

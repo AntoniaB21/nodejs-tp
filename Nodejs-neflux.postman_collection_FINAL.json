@@ -14,6 +14,16 @@
 						"followRedirects": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJ0b3RvMTExQGdtYWlsLmNvbSIsImlhdCI6MTY1MDA1ODYwNiwiZXhwIjoxNjUwMDY5NDA2fQ.PjXDdHvlNhHaTHMYjt6uxM2f6P0VKvvYZHBTvMDBBuk",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -326,7 +336,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"lastName\":\"toto\",\n    \"firstName\":\"toto\",\n    \"email\":\"toto@gmail.com\",\n    \"password\":\"azerty\",\n    \"roles\":\"ADMIN\"\n}",
+							"raw": "{\n    \"lastName\":\"toto new\",\n    \"firstName\":\"toto\",\n    \"email\":\"toto111@gmail.com\",\n    \"password\":\"azerty\",\n    \"roles\":\"ADMIN\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -365,7 +375,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "1"
+									"value": "4"
 								}
 							]
 						}
@@ -469,6 +479,32 @@
 					],
 					"path": [
 						"home"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a token from a user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"toto111@gmail.com\",\n    \"password\":\"azerty\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/authentication-token",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"authentication-token"
 					]
 				}
 			},
